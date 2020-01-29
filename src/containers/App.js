@@ -4,6 +4,7 @@ import SearchBox from '../components/SearchBox';
 // import { robots } from './robots';
 // Put the line above back in to read straight from the JSON file
 import Scroll from '../components/Scroll';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
 
@@ -48,7 +49,9 @@ class App extends React.Component {
 						<h1 className = 'f1'> Robot Friends </h1>
 						<SearchBox searchChange = { this.onSearchChange } />
 						<Scroll>
-							<CardList robots = { filteredRobots } />
+							<ErrorBoundary>
+								<CardList robots = { filteredRobots } />
+							</ErrorBoundary>
 						</Scroll>
 					</div>
 		);
